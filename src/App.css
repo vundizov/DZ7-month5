@@ -4,4 +4,11 @@
   /* padding: 2rem; */
   text-align: center;
 }
-
+nav {
+  display: flex;
+  justify-content: center;
+}
+ul {
+  display: flex;
+  gap: 20px;
+}

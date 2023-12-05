@@ -1,12 +1,8 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout.jsx";
-import CounterPage from "./pages/CounterPage.jsx";
-import TodoListPage from "./pages/TodoListPage.jsx";
-import UserPage from "./pages/UserPage.jsx";
-import PostEditPage from "./pages/PostEditPage.jsx";
-import PostsListPage from "./pages/PostsListPage.jsx";
+import Layout from "./component/Layout.jsx";
 import Products from "./pages/Products.jsx";
+import BasketPage from "./pages/BasketPage.jsx";
 
 
 function App() {
@@ -15,12 +11,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<span className="text-2xl">Home Page</span>} />
-          <Route path="counter" element={<CounterPage />} />
           <Route path="product" element={<Products />} />
-          <Route path="user" element={<UserPage />} />
-          <Route path="todos" element={<TodoListPage />} />
-          <Route path="posts" element={<PostsListPage />} />
-          <Route path="posts/:id/edit" element={<PostEditPage />} />
+          <Route path="basket" element={<BasketPage />} />
           <Route
             path="*"
             element={<span className="text-2xl">Not found</span>}
