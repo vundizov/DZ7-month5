@@ -10,6 +10,7 @@ export const fetchData = createAsyncThunk(
     }
 )
 
+
 export const products = createSlice({
     name: 'products',
     initialState: {
