@@ -1,33 +1,33 @@
-
 import {useDispatch, useSelector} from "react-redux";
-import {productAction} from "../store/Products.js";
-import {useEffect, useState} from "react";
 import {addProduct} from "../store/productsInBasketSlice.js";
+import axios from "axios";
+import {fetchData} from "../store/Products.js";
+import {useEffect} from "react";
 
 const Products = () => {
+
     const dispatch = useDispatch()
     const product = useSelector(state => state.product.products)
-    const {productsAmount} = useSelector(state => state.productsInBasketReducer)
-    const [ find, setFind ] = useState(null)
+    // const {productsAmount} = useSelector(state => state.productsInBasketReducer)
 
-    console.log(productsAmount)
-    // useEffect(() => {
-    //     const findId = inBasket.find((i) => i.id === i.id)
-    //     findId ? setFind(findId) : setFind(null)
-    // }, [inBasket])
-    // console.log(inBasket)
-
+    useEffect(() => {
+        dispatch(fetchData())
+    }, [])
+    // console.log(productsAmount)
+    //
+    console.log(product)
 
     const buyClick = (item) => {
         dispatch(addProduct(item))
     }
     return (
         <div>
-            {product.map((i)=> (
-                <div key={i._id}>
-                    {i.name}
+            {product.map((i) => (
+                <div key={i.id}>
+                    <img src={i.images[0]} alt="icon"/>
+                    {i.brand}
                     <br/>
-                    <button onClick={()=>buyClick(i)}>BUY</button>
+                    <button style={{border: "1px solid black"}} onClick={() => buyClick(i)}>BUY</button>
                 </div>
             ))}
         </div>

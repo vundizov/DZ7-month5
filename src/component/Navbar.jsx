@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 import {useSelector} from "react-redux";
 import '../App.css'
+
+import icon from "../assets/icon.png"
 const Navbar = () => {
   const counter = useSelector(state => state.productsInBasketReducer.productsAmount)
   return (
@@ -17,10 +19,11 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          {counter}
           <NavLink to='basket'>
             basket
+            <img style={{width: "20px"}} src={icon} alt="icon"/>
           </NavLink>
+          <span style={{marginLeft: "8px"}}>{counter}</span>
         </li>
       </ul>
     </nav>

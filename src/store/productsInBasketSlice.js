@@ -10,9 +10,13 @@ const productsInBasketSlice = createSlice({
         addProduct: (state, action) => {
             state.productsAmount = state.productsAmount + 1;
             state.products.push(action.payload)
+        },
+        filterProducts: (state, action) => {
+            state.productsAmount = state.productsAmount - 1;
+            state.products.splice((action.payload), 1)
         }
     }
 })
 
-export const {addProduct} = productsInBasketSlice.actions
+export const {addProduct,filterProducts} = productsInBasketSlice.actions
 export default productsInBasketSlice.reducer

@@ -12,3 +12,6 @@ ul {
   display: flex;
   gap: 20px;
 }
+img {
+  margin: 0 auto;
+}
